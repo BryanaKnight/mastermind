@@ -1,13 +1,19 @@
 require './lib/mastermind'
+require './lib/messages'
+require './lib/input'
+require './lib/guess_secret_evaluator'
+require './lib/guess'
 
-puts "Welcome to Mastermind"
+mastermind = Mastermind.new
+messages = Messages
+
+puts messages.welcome
+puts messages.first_question
 
 input = ""
-mastermind = Mastermind.new
 
 while input != "q"
   print "> "
-  input = gets.chomp
-  puts mastermind.execute(input)
+  mastermind.execute
 end
-puts "Goodbye!"
+
