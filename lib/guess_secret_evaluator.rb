@@ -1,10 +1,10 @@
 require 'pry'
 class GuessSecretEvaluator
 
-  attr_reader :guess
+  attr_accessor :guess
 
   def initialize(guess)
-    @guess = guess
+    @guess = Guess.new(guess)
     evaluate
   end
 
@@ -13,10 +13,19 @@ class GuessSecretEvaluator
   end
 
   def evaluate
-    puts Messages.too_short if guess.too_short?
-    puts Messages.too_long if guess.too_long?
-    if guess.combo != secret
-      puts Messages.wrong_guess(guess.combo.upcase, number_letters_correct, number_letters_correct_place)
+    loop do
+      if guess.combo == "q"
+        Mastermind.new.quit
+      elsif guess.too_short?
+        puts Messages.too_short
+        @guess = Guess.new(gets.chomp.downcase)
+      elsif guess.too_long?
+        puts Messages.too_long
+        @guess = Guess.new(gets.chomp.downcase)
+      elsif guess.combo != secret
+        puts Messages.wrong_guess(guess.combo.upcase, number_letters_correct, number_letters_correct_place)
+        @guess = Guess.new(gets.chomp.downcase)
+      end
     end
   end
 

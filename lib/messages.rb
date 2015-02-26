@@ -22,10 +22,6 @@ class Messages
     "Goodbye"
   end
 
-  def self.guess_again
-    "Guess again!"
-  end
-
   def self.too_short
     "Guess is too short. Try again!"
   end
@@ -35,7 +31,7 @@ class Messages
   end
 
   def self.wrong_guess(guess, num_correct, num_correct_position)
-   "#{guess} has #{num_correct} of the correct elements with #{num_correct_position} in the correct positions"
+    "#{guess} has #{num_correct} of the correct elements with #{num_correct_position} in the correct positions. Try again!"
   end
 
 end
