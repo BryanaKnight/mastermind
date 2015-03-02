@@ -1,10 +1,9 @@
 require 'pry'
 
 class Mastermind
-  attr_reader :secret, :messages
+  attr_reader :messages
 
   def initialize
-    @secret = "rrgb"
     @messages = Messages
   end
 
