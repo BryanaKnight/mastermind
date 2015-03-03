@@ -12,5 +12,6 @@ input = ""
 while input != "q"
   print "> "
   mastermind.execute
+  puts messages.goodbye
+  input = "q"
 end
-
