@@ -1,8 +1,5 @@
 require './lib/mastermind'
 require './lib/messages'
-require './lib/input'
-require './lib/guess_secret_evaluator'
-require './lib/guess'
 
 mastermind = Mastermind.new
 messages = Messages

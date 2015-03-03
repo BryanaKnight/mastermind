@@ -1,4 +1,5 @@
 require 'pry'
+require './lib/game'
 
 class Mastermind
   attr_reader :messages
@@ -12,7 +13,7 @@ class Mastermind
     if input.play?
       puts messages.whats_your_guess
       guess = gets.chomp.downcase
-      GuessSecretEvaluator.new(guess)
+      Game.new(guess)
     elsif input.quit?
       quit
     end
