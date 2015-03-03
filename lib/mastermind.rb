@@ -1,5 +1,6 @@
 require 'pry'
 require './lib/game'
+require './lib/input'
 
 class Mastermind
   attr_reader :messages
@@ -10,18 +11,12 @@ class Mastermind
 
   def execute
     input = Input.new(gets.chomp.downcase)
-    if input.play?
+    while input.request != "q"
+      input.play?
       puts messages.whats_your_guess
       guess = gets.chomp.downcase
       Game.new(guess)
-    elsif input.quit?
-      quit
     end
-  end
-
-  def quit
-    puts messages.goodbye
-    exit
   end
 
 end
