@@ -18,4 +18,17 @@ class GuessSecretEvaluatorTest < Minitest::Test
     assert_equal 1, gse.number_letters_correct_place(guess, secret)
   end
 
+  def test_it_counts_another_number_of_letters_correct
+    guess = "ygbr"
+    secret = "rbgy"
+    gse = GuessSecretEvaluator
+    assert_equal 4, gse.number_letters_correct(guess, secret)
+  end
+
+  def test_it_counts_another_number_of_letters_in_correct_spot
+    guess = "ygbr"
+    secret = "rbgy"
+    gse = GuessSecretEvaluator
+    assert_equal 0, gse.number_letters_correct_place(guess, secret)
+  end
 end
