@@ -1,17 +1,17 @@
 require './lib/mastermind'
 require './lib/messages'
+include Messages
 
 mastermind = Mastermind.new
-messages = Messages
 
-puts messages.welcome
-puts messages.first_question
+puts Messages.welcome
+puts Messages.first_question
 
 input = ""
 
 while input != "q"
   print "> "
   mastermind.execute
-  puts messages.goodbye
+  puts Messages.goodbye
   input = "q"
 end
