@@ -13,7 +13,7 @@ class Game
   end
 
   def secret
-    "rrgb"
+    ["r","g","b","y"].shuffle.join("")
   end
 
   def play
