@@ -2,6 +2,7 @@ require 'pry'
 require './lib/guess'
 require './lib/messages'
 require './lib/guess_secret_evaluator'
+
 class Game
   include Messages
 
