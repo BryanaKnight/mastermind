@@ -7,7 +7,7 @@ class Mastermind
 
   def execute
     loop do
-      input = Input.new(gets.chomp.downcase) || ""
+      input = Input.new(gets.chomp.downcase)
       if input.play?
         puts Messages.whats_your_guess
         guess = gets.chomp.downcase

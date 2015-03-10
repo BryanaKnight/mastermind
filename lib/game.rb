@@ -32,10 +32,16 @@ class Game
         get_next_guess
       end
     end
+    exit_game
   end
 
   def get_next_guess
     @guess = Guess.new(gets.chomp.downcase)
+  end
+
+  def exit_game
+    puts Messages.goodbye
+    exit
   end
 
 end
