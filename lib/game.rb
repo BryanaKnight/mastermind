@@ -25,9 +25,7 @@ class Game
       elsif guess.too_long?
         puts Messages.too_long
         get_next_guess
-      elsif guess.combo != secret
-        num_correct = GuessSecretEvaluator.number_letters_correct(guess.combo, secret)
-        num_in_place = GuessSecretEvaluator.number_letters_correct_place(guess.combo, secret)
+      else
         puts Messages.wrong_guess(guess.combo.upcase, num_correct, num_in_place)
         get_next_guess
       end
@@ -37,6 +35,14 @@ class Game
 
   def get_next_guess
     @guess = Guess.new(gets.chomp.downcase)
+  end
+
+  def num_correct
+    GuessSecretEvaluator.number_letters_correct(guess.combo, secret)
+  end
+
+  def num_in_place
+    GuessSecretEvaluator.number_letters_correct_place(guess.combo, secret)
   end
 
   def exit_game
